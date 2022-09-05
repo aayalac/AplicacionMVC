@@ -6,7 +6,6 @@
 
         protected Entity()
         {
-
         }
 
         public Entity(Guid id)

@@ -12,6 +12,8 @@
 
         public Guid EstacionId { get; private set; } // foreing key
 
+        public List<Conductor> Conductores { get; private set; }
+
         public Estacion Estacion { get; private set; }
 
         private Bus(Guid id,string nombreRuta, string placa, string marca, string modelo, Guid estacionId)
