@@ -22,5 +22,10 @@
             Ruta = ruta;
             BusId = busId;
         }
+
+        public Conductor Build(Guid id, string nombre, string apellido, int identificacion, string ruta, Guid busId)
+        {
+            return new Conductor(id, nombre, apellido, identificacion, ruta, busId);
+        }
     }
 }

@@ -16,7 +16,7 @@
 
         public Estacion Estacion { get; private set; }
 
-        private Bus(Guid id,string nombreRuta, string placa, string marca, string modelo, Guid estacionId)
+        private Bus(Guid id, string nombreRuta, string placa, string marca, string modelo, Guid estacionId)
         {
             NombreRuta = nombreRuta;
             Placa = placa;
