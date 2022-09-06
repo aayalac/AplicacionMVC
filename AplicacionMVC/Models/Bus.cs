@@ -12,7 +12,7 @@
 
         public Guid EstacionId { get; private set; } // foreing key
 
-        public List<Conductor> Conductores { get; private set; }
+        public List<Conductor> Conductores { get; private set; } // listado de Conductores
 
         public Estacion Estacion { get; private set; }
 

@@ -11,8 +11,7 @@
 
         public int NumeroVagones { get; private set; }
 
-        // lista buses
-        public List<Bus> Buses { get; private set; } 
+        public List<Bus> Buses { get; private set; } // lista buses
 
         private Estacion(Guid id, string nombre, string troncal, string direccion, int numeroVagones) : base()
         {
