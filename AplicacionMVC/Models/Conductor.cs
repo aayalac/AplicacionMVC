@@ -14,7 +14,7 @@
 
         public Guid BusId { get; private set; } // foreing key
 
-        public Conductor(Guid id,string nombre, string apellido, int identificacion, string ruta, Guid busId)
+        public Conductor(Guid id, string nombre, string apellido, int identificacion, string ruta, Guid busId)
         {
             Nombre = nombre;
             Apellido = apellido;

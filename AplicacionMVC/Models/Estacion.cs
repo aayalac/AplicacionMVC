@@ -23,7 +23,7 @@
 
         public Estacion Build(Guid id, string nombre, string troncal, string direccion, int numeroVagones)
         {
-            return new Estacion(id,nombre,troncal,direccion,numeroVagones);
+            return new Estacion(id, nombre, troncal, direccion, numeroVagones);
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class Bus
     {
-        public string NombreRuta { get;  private set; }
+        public string NombreRuta { get; private set; }
 
         public string Placa { get; private set; }
 
@@ -27,7 +27,7 @@
 
         public Bus Build(Guid id, string nombreRuta, string placa, string marca, string modelo, Guid estacionId)
         {
-            return new Bus(id,nombreRuta,placa,marca,modelo,estacionId);
+            return new Bus(id, nombreRuta, placa, marca, modelo, estacionId);
         }
     }
 }
