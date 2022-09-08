@@ -1,6 +1,6 @@
 ﻿namespace AplicacionMVC.Models
 {
-    public class Bus
+    public class Bus : Entity
     {
         public string NombreRuta { get; private set; }
 
@@ -16,7 +16,7 @@
 
         public Estacion Estacion { get; private set; }
 
-        private Bus(Guid id, string nombreRuta, string placa, string marca, string modelo, Guid estacionId)
+        private Bus(Guid id, string nombreRuta, string placa, string marca, string modelo, Guid estacionId): base(id)
         {
             NombreRuta = nombreRuta;
             Placa = placa;
@@ -25,7 +25,7 @@
             Modelo = modelo;
         }
 
-        public Bus Build(Guid id, string nombreRuta, string placa, string marca, string modelo, Guid estacionId)
+        public static Bus Build(Guid id, string nombreRuta, string placa, string marca, string modelo, Guid estacionId)
         {
             return new Bus(id, nombreRuta, placa, marca, modelo, estacionId);
         }

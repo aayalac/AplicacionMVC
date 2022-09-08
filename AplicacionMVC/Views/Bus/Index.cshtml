@@ -1,0 +1,46 @@
+﻿@using AplicacionMVC.Models;
+@model List<Bus>
+
+@{
+    ViewData["tittle"] = "Buses";
+}
+<h1>@ViewData["Title"]</h1>
+
+@if(Model.Count !=0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Ruta</th>
+                <th scope="col">Placa</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Estacion</th>                
+            </tr>
+        </thead>
+        <tbody>
+                @foreach(var b in Model)
+                {
+            <tr>
+                    <td>@b.Id</td>
+                    <td>@b.NombreRuta</td>
+                    <td>@b.Placa</td>
+                    <td>@b.Marca</td>
+                    <td>@b.Modelo</td>
+                    <td>@b.NombreRuta</td>
+                    <td>@b.EstacionId</td>                    
+            </tr>
+                }
+           
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="card">
+        <div class="card-body">
+            No se encuentran datos.
+        </div>
+    </div>
+}

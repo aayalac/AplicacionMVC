@@ -13,7 +13,7 @@
 
         public List<Bus> Buses { get; private set; } // lista buses
 
-        private Estacion(Guid id, string nombre, string troncal, string direccion, int numeroVagones) : base()
+        private Estacion(Guid id, string nombre, string troncal, string direccion, int numeroVagones) : base(id)
         {
             Nombre = nombre;
             Troncal = troncal;
@@ -21,7 +21,7 @@
             NumeroVagones = numeroVagones;
         }
 
-        public Estacion Build(Guid id, string nombre, string troncal, string direccion, int numeroVagones)
+        public static Estacion Build(Guid id, string nombre, string troncal, string direccion, int numeroVagones)
         {
             return new Estacion(id, nombre, troncal, direccion, numeroVagones);
         }
