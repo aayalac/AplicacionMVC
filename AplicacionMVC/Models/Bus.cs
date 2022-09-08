@@ -2,7 +2,7 @@
 {
     public class Bus : Entity
     {
-        public string Id { get; private set; }
+        public string NombreRuta { get; private set; }
 
         public string Placa { get; private set; }
 
@@ -18,7 +18,7 @@
 
         private Bus(Guid id, string nombreRuta, string placa, string marca, string modelo, Guid estacionId): base(id)
         {
-            Id = nombreRuta;
+            NombreRuta = nombreRuta;
             Placa = placa;
             Marca = marca;
             EstacionId = estacionId;
