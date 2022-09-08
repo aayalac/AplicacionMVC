@@ -1,46 +1,58 @@
-﻿@using AplicacionMVC.Models;
-@model List<Bus>
+﻿@model IEnumerable<AplicacionMVC.Models.Bus>
 
 @{
-    ViewData["tittle"] = "Buses";
+    ViewData["Title"] = "Listado de Buses";
 }
+
 <h1>@ViewData["Title"]</h1>
 
-@if(Model.Count !=0)
-{
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Ruta</th>
-                <th scope="col">Placa</th>
-                <th scope="col">Marca</th>
-                <th scope="col">Modelo</th>
-                <th scope="col">Estacion</th>                
-            </tr>
-        </thead>
-        <tbody>
-                @foreach(var b in Model)
-                {
-            <tr>
-                    <td>@b.Id</td>
-                    <td>@b.NombreRuta</td>
-                    <td>@b.Placa</td>
-                    <td>@b.Marca</td>
-                    <td>@b.Modelo</td>
-                    <td>@b.NombreRuta</td>
-                    <td>@b.EstacionId</td>                    
-            </tr>
-                }
-           
-        </tbody>
-    </table>
-}
-else
-{
-    <div class="card">
-        <div class="card-body">
-            No se encuentran datos.
-        </div>
-    </div>
-}
+<p>
+    <a asp-action="Crear" class="btn btn-success">Crear bus</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Placa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estacion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Placa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estacion.Id)
+            </td>
+            <td>
+                <a asp-action="Editar" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Borrar" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>}
+    </tbody>
+</table>
