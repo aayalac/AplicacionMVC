@@ -1,33 +1,38 @@
-﻿@using AplicacionMVC.Models;
+﻿@using AplicacionMVC.Models
 @model List<Estacion>
 
 @{
-    ViewData["tittle"] = "Estaciones";
+    ViewData["Title"] = "Index";
 }
-<h1>@ViewData["Title"]</h1>
-<a asp-action="Crear" class="btn btn-success">Crear Estacion</a>
-@if (Model.Count != 0)
+
+<div class="col-sm-6">
+    <a class="btn btn-success" asp-area="" asp-controller="Estacion" asp-action="Crear">Crear Estacion</a>
+</div>
+
+@if(Model.Count !=0)
 {
-    <table class="table table-striped">
+    <table class="table">
         <thead>
             <tr>
                 <th scope="col">Nombre</th>
                 <th scope="col">Troncal</th>
                 <th scope="col">Direccion</th>
-                <th scope="col"># de vagones</th>
+                <th scope="col"># Vagones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var e in Model)
+            @foreach(var item in Model)
             {
                 <tr>
-                    <td>@e.Nombre</td>
-                    <td>@e.Troncal</td>
-                    <td>@e.Direccion</td>
-                    <td>@e.NumeroVagones</td>               
+                    <td>@item.Nombre</td>
+                    <td>@item.Troncal</td>
+                    <td>@item.Direccion</td>
+                    <td>@item.NumeroVagones</td>
+                    <td><a asp-route-id="@item.Id" asp-action="Update" class="btn btn-outline-success btnsm">Editar</a>
+                        <input onclick="jsDelete(@item.Id);" type="button" value="Eliminar" class="btn btn-danger" />
+                        </td>                    
                 </tr>
-            }
-
+            }                     
         </tbody>
     </table>
 }
@@ -35,7 +40,26 @@ else
 {
     <div class="card">
         <div class="card-body">
-            No se encuentran datos.
+            No se encuentran estaciones registradas.
         </div>
     </div>
 }
+
+<script>
+    function jsDelete(id) {
+        if (confirm("Esta seguro de borrar esta estacion?")) {
+            url = "@Url.Content("~/Estacion/Delete")" + "/" + id;
+
+            $.post(url, function (data) {
+
+                if (data == "1") {
+                    document.location.href = "@Url.Content("~/Estacion/")"
+                } else {
+                    alert("Ocurrio un error")
+                }
+
+            })
+        }
+
+    }
+</script>

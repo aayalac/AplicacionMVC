@@ -29,7 +29,7 @@ namespace AplicacionMVC.Services
             this.repository.Update(estacion);
             await this.repository.Commit();
         }
-        public async Task Borrar(Estacion estacion)
+        public async Task Delete(Estacion estacion)
         {    
             this.repository.Delete(estacion);
             await this.repository.Commit();
@@ -39,5 +39,9 @@ namespace AplicacionMVC.Services
         {
             return await this.repository.GetAll<Estacion>();
         }
+        public async Task<Estacion> GetById(Guid id)
+        {
+            return await this.repository.GetById<Estacion>(id);
+        }        
     }
 }

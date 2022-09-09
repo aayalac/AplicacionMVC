@@ -1,0 +1,45 @@
+﻿@using AplicacionMVC.Models
+@model Estacion
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update</h1>
+
+<h4>Estacion</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-controller="Estacion" class="form-group">
+
+            <input type="hidden" asp-for="Id"/>
+            <div class="mb-3">
+                <label asp-for="Nombre" class="form-label">Nombre</label>
+                <input asp-for="Nombre" type="text" class="form-control"/>
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Troncal" class="form-label">Troncal</label>
+                <input asp-for="Troncal" type="text" class="form-control" />
+                <span asp-validation-for="Troncal" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Direccion" class="form-label">Direccion</label>
+                <input asp-for="Direccion" type="text" class="form-control" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="NumeroVagones" class="form-label"># Vagones</label>
+                <input asp-for="NumeroVagones" type="text" class="form-control" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+
+            <div class="container">
+                <div class="col-sm">
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                </div>
+            </div>
+</form>
+</div>
+</div>
