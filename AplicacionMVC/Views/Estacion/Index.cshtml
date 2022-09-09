@@ -45,7 +45,7 @@ else
 }
 <script>
     function jsDelete(id) {
-        if (confirm("¿Esta seguro de borrar este elemento?")) {
+        if (confirm("¿Esta seguro de borrar la estacion?")) {
             url = "@Url.Content("~/Estacion/Delete")" + "/" + id;
 
             $.post(url, function (data) {
