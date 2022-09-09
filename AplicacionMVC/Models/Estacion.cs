@@ -3,7 +3,7 @@
     public class Estacion : Entity
     {
         // atributos
-        public string Nombre { get; private set; }
+        public string Nombre { get; set; }
 
         public string Troncal { get; private set; }
 

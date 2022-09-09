@@ -4,7 +4,6 @@
 @{
     ViewData["Title"] = "Index";
 }
-
 <div class="col-sm-6">
     <a class="btn btn-success" asp-area="" asp-controller="Estacion" asp-action="Crear">Crear Estacion</a>
 </div>
@@ -29,12 +28,12 @@
                     <td>@item.Direccion</td>
                     <td>@item.NumeroVagones</td>
                     <td><a asp-route-id="@item.Id" asp-action="Update" class="btn btn-outline-success btnsm">Editar</a>
-                        <input onclick="jsDelete(@item.Id);" type="button" value="Eliminar" class="btn btn-danger" />
+                        <input onclick="jsDelete('@item.Id');" type="button" value="Eliminar" class="btn btn-danger" />
                         </td>                    
                 </tr>
-            }                     
+            }            
         </tbody>
-    </table>
+    </table>    
 }
 else
 {
@@ -44,10 +43,9 @@ else
         </div>
     </div>
 }
-
 <script>
     function jsDelete(id) {
-        if (confirm("Esta seguro de borrar esta estacion?")) {
+        if (confirm("¿Esta seguro de borrar este elemento?")) {
             url = "@Url.Content("~/Estacion/Delete")" + "/" + id;
 
             $.post(url, function (data) {
@@ -57,9 +55,7 @@ else
                 } else {
                     alert("Ocurrio un error")
                 }
-
             })
         }
-
     }
 </script>
