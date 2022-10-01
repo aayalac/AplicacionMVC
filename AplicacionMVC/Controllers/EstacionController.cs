@@ -26,9 +26,7 @@ namespace AplicacionMVC.Controllers
         {
             var estacion = Estacion.Build(Guid.NewGuid(), nombre, troncal, direccion, numeroVagones);
             await this.estacionServices.Crear(estacion);
-            return RedirectToAction(nameof(Index));
-
-            return View();
+            return RedirectToAction(nameof(Index));            
         }
 
         [HttpGet]
